@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>NUST VPN | Campus Secure Access</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="phone-frame" id="appRoot">
+        <!-- SCREEN 1 - LANDING -->
+        <div id="screenLanding" class="screen active">
+            <div class="hero">
+                <div class="img-placeholder" style="background-image: url('images/nust_icon.png');"></div>
+                <div class="nust-brand">NUST VPN</div>
+                <div class="tagline">NAMIBIA UNIVERSITY<br>OF SCIENCE AND TECHNOLOGY</div>
+            </div>
+            <div class="action-card">
+                <div class="secure-text">Connect securely to NUST Wi-Fi</div>
+                <button class="btn-primary" id="btnGetStarted">Get Started →</button>
+                <div class="note">Protected & encrypted connection</div>
+            </div>
+        </div>
+
+        <!-- SCREEN 2 - LOGIN -->
+        <div id="screenLogin" class="screen">
+            <div class="back-header" id="loginBackBtn">
+                <span class="back-arrow">←</span>
+                <span>Go back</span>
+            </div>
+            <div class="logo-area">
+                <div class="img-placeholder-small" style="background-image: url('images/nust_logo.jpg');"></div>
+                <div class="uni-name">NAMIBIA UNIVERSITY<br>OF SCIENCE AND TECHNOLOGY</div>
+            </div>
+            <div class="form-group">
+                <div class="input-field">
+                    <label>Username</label>
+                    <input type="text" id="loginUsername" placeholder="Enter your student No" autocomplete="off">
+                </div>
+                <div class="input-field">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password">
+                </div>
+                <div class="options">
+                    <label class="remember">
+                        <input type="checkbox" id="rememberMe"> Remember Me
+                    </label>
+                    <a href="#" id="forgotPasswordLink" class="forgot">Forgot Password?</a>
+                </div>
+                <button class="btn-login" id="doLoginBtn">LOGIN</button>
+            </div>
+            <div class="assist">
+                <div class="assist-text">Need Assistance ? ~</div>
+                <a href="#" id="contactSupportLogin" class="contact-link">Contact ICT Support</a>
+            </div>
+        </div>
+
+        <!-- SCREEN 3 - POLICY & SETUP -->
+        <div id="screenPolicy" class="screen">
+            <div class="back-header" id="policyBackBtn">
+                <span class="back-arrow">←</span>
+                <span>Go back</span>
+            </div>
+            <div class="content-padding">
+                <h1>Welcome back</h1>
+                <div class="policy-box">
+                    <div class="policy-title">Academic Access Policy</div>
+                    <label class="policy-option">
+                        <input type="radio" name="policyChoice" value="accept"> Accept the T&Cs
+                    </label>
+                    <label class="policy-option">
+                        <input type="radio" name="policyChoice" value="reject"> Do not accept the T&Cs
+                    </label>
+                </div>
+                <div class="setup-title">Setting Up OpenVPN (Advanced)</div>
+                <ul class="steps">
+                    <li>Install OpenVPN Client</li>
+                    <li>Import profile</li>
+                    <li>Download your configuration file</li>
+                    <li>Connect</li>
+                </ul>
+                <button class="btn-primary" id="acceptProceedBtn">Proceed to Connection →</button>
+                <div class="assist" style="margin-top: 24px;">
+                    <div class="assist-text">Need Assistance ? ~</div>
+                    <a href="#" id="contactPolicyLink" class="contact-link">Contact ICT Support</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 4 - CONNECTED DASHBOARD -->
+        <div id="screenConnected" class="screen">
+            <div class="status-header">
+                <div class="img-placeholder-small" style="margin-bottom: 15px; background-image: url('images/student.jpg');"></div>
+                <div class="greeting">Goodmorning !</div>
+                <div class="micro-space">You are connected to NUST Wi-Fi</div>
+                <div class="connected-badge">CONNECTED</div>
+            </div>
+            <div class="stats-card">
+                <div class="stat-row"><span class="stat-label">Time Remaining</span><span>02:14:50</span></div>
+                <div class="stat-row"><span class="stat-label">Data Used</span><span>1.3 GB</span></div>
+                <div class="stat-row"><span class="stat-label">Bandwidth</span><span>~12 Mbps</span></div>
+            </div>
+            <div style="text-align: center; margin-bottom: 12px; font-weight: 500;">Disconnect?</div>
+            <button class="stop-btn" id="disconnectToResourcesBtn">STOP</button>
+        </div>
+
+        <!-- SCREEN 5 - RESOURCES HUB (with circular images and search) -->
+        <div id="screenResources" class="screen">
+            <div class="back-header" id="resourcesBackBtn">
+                <span class="back-arrow">←</span>
+                <span>Go back</span>
+            </div>
+            <div class="search-section">
+                <div class="search-bar">
+                    <input type="text" id="resourceSearchInput" placeholder="🔍 Find a resource..." class="search-input">
+                    <button id="searchButton" class="search-btn">~ Search</button>
+                </div>
+            </div>
+            <div id="resourcesGridContainer">
+                <div class="resources-grid" id="resourcesGrid">
+                    <!-- Resources will be dynamically populated by JS -->
+                </div>
+            </div>
+            <div id="noResultsMsg" class="no-results" style="display: none;">
+                <span>🔎 No matching resources found</span>
+            </div>
+            <div class="view-all" id="viewAllStatsBtn">View All → Usage Stats</div>
+        </div>
+
+        <!-- SCREEN 6 - USAGE STATISTICS -->
+        <div id="screenUsage" class="screen">
+            <div class="back-header" id="usageBackBtn">
+                <span class="back-arrow">←</span>
+                <span>Go back</span>
+            </div>
+            <div style="background: #0A2F44; padding: 28px 20px 20px;">
+                <h2 style="color: white;">Usage statistics</h2>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-row"><span>Duration:</span><span>4h 13min</span></div>
+                <div class="stat-row"><span>Data Usage:</span><span>5.1 GB</span></div>
+            </div>
+            <div class="double-buttons">
+                <button class="btn-outline" id="extendSessionBtn">Extend Session ?</button>
+            </div>
+            <button class="btn-disconnect" id="finalDisconnectBtn">DISCONNECT</button>
+            <div class="sites-list">
+                <div class="site-item"><span>eLearning</span><span>1040 MB</span></div>
+                <div class="site-item"><span>NUST Library</span><span>576 MB</span></div>
+                <div class="site-item"><span>ChatGPT</span><span>2340 MB</span></div>
+                <div class="site-item"><span>MS Teams</span><span>1046 MB</span></div>
+                <div class="site-item"><span>Others</span><span>98 MB</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
